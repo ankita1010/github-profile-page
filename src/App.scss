@@ -21,3 +21,60 @@ body {
 		justify-content: center;
 	}
 }
+@media only screen and (max-width: 760px) {
+	.app-block {
+		flex-direction: column;
+		.profile-wrapper {
+			width: 100%;
+			flex-direction: row;
+			align-items: flex-start;
+			justify-content: flex-start;
+			min-height: 0px;
+			flex-wrap: wrap;
+			.personal-details {
+				h2 {
+					margin-top:5px;
+				}
+			}
+			.avatar {
+				width: 25%;
+				margin-right: 20px;
+			}
+			.personal-details {
+				flex: 1;
+				
+			}
+			.work-details {
+				width: 100%;
+			}
+		}
+	}
+}
+@media only screen and (max-width: 550px)  {
+
+.app-block {
+	.repository-details-wrapper {
+		.search-and-filter-block {
+			.repo-search {
+				min-width: 90%;
+				margin-bottom: 10px;
+			}
+			.filter-block, .new-btn {
+				margin-left: 0px;
+				margin-right: 10px;
+			}
+		}
+	}
+}
+}
+
+@media only screen and (max-width: 630px)  {
+
+.app-block {
+	.repository-details-wrapper {
+		.tab-navigator {
+			overflow: auto;
+		}
+	}
+}
+}

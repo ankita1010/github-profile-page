@@ -15,14 +15,17 @@ export const SearchAndFilterTab = (props) => {
 		handleFilterByLanguage,
 		updateVisibleFilterType
 	} = props;
+
 	const handleSearch = (event) => {
 		handleRepositorySearch(event.target.value);
 	};
+
 	const languages = repositoryData.reduce((acc, currentValue) => (
-		acc.includes(currentValue.language) ?
+		!currentValue.language || acc.includes(currentValue.language) ?
 			acc
 			: [...acc, currentValue.language]
-	), ["All"])
+	), ["All"]);
+
 	return (
 		<div className="search-and-filter-block">
 			<input
@@ -39,6 +42,9 @@ export const SearchAndFilterTab = (props) => {
 				{
 					currentFilterVisible === "type" ?
 						<div className="filter-types-wrapper">
+							<div className="filter-header">
+								Select Type
+							</div>
 							{
 								filterTypes.map(
 									(eachFilterType) => {
@@ -71,6 +77,9 @@ export const SearchAndFilterTab = (props) => {
 				{
 					currentFilterVisible === "language" ?
 						<div className="filter-types-wrapper">
+							<div className="filter-header">
+								Select Language
+							</div>
 							{
 								languages.map(
 									(eachLanguage, index) => (
@@ -88,7 +97,8 @@ export const SearchAndFilterTab = (props) => {
 						: null
 				}
 			</div>
-			<button>
+			<button className="new-btn">
+				<i className="fa fa-plus-circle"/>
 				New
 			</button>
 		</div>

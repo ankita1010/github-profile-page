@@ -19,6 +19,7 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				repositoryType,
+				currentFilterVisible: null,
 				searchValue: ''
 			}
 		}
@@ -34,7 +35,8 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				repositoryLanguage,
-				searchValue: ''
+				searchValue: '',
+				currentFilterVisible: null,
 			}
 		}
 		case HANDLE_UPDATE_FILTER_TYPE: {

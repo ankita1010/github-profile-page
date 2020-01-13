@@ -1,43 +1,23 @@
-import React, { useEffect, Fragment } from "react";
+import { AppComponent } from "./AppComponent";
 import { connect } from "react-redux";
-import { getProfileAndRepoData } from "./actions";
-import { TopNav, Main, Loader } from "./components";
+import {
+	getProfileAndRepoData,
+	updateVisibleFilterType
+} from "./actions";
 import "./App.scss";
 
-const AppComponent = props => {
-
-	const { isLoading, getProfileAndRepoData } = props;
-
-	useEffect(() => {
-		getProfileAndRepoData();
-	}, []);
-
-	return [
-			<TopNav key="top-nav"/>,
-			<div
-				className="app-block"
-				key="app-block"
-			>
-				{isLoading ? (
-					<div className="loading-indicator">
-						<Loader />
-					</div>
-				) : (
-						<Main />
-					)}
-			</div>
-		];
-};
 
 const mapStateToProps = state => {
-	const {common} = state;
+	const { common, repositoryActions } = state;
 	return {
-		isLoading: common.isLoading
+		isLoading: common.isLoading,
+		currentFilterVisible: repositoryActions.currentFilterVisible
 	};
 };
 
 const App = connect(mapStateToProps, {
-	getProfileAndRepoData
+	getProfileAndRepoData,
+	updateVisibleFilterType
 })(AppComponent);
 
 export { App };
