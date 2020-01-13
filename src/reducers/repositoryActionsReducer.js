@@ -1,13 +1,15 @@
 import {
 	HANDLE_FILTER_BY_LANGUAGE,
 	HANDLE_FILTER_BY_TYPE,
-	HANDLE_REPOSITORY_SEARCH
+	HANDLE_REPOSITORY_SEARCH,
+	HANDLE_UPDATE_FILTER_TYPE
 } from '../constants';
 
 const initialState = {
 	searchValue: '',
-	repositoryType: null,
-	repositoryLanguage: null
+	repositoryType: {label: "All"},
+	repositoryLanguage: "All",
+	currentFilterVisible: null
 };
 
 export default (state = initialState, action) => {
@@ -16,7 +18,8 @@ export default (state = initialState, action) => {
 			const { repositoryType } = action;
 			return {
 				...state,
-				repositoryType
+				repositoryType,
+				searchValue: ''
 			}
 		}
 		case HANDLE_REPOSITORY_SEARCH: {
@@ -30,7 +33,15 @@ export default (state = initialState, action) => {
 			const { repositoryLanguage } = action;
 			return {
 				...state,
-				repositoryLanguage
+				repositoryLanguage,
+				searchValue: ''
+			}
+		}
+		case HANDLE_UPDATE_FILTER_TYPE: {
+			const { currentFilterVisible } = action;
+			return {
+				...state,
+				currentFilterVisible
 			}
 		}
 		default: {

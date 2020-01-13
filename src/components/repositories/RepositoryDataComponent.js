@@ -9,11 +9,35 @@ import { RepositoryTile } from './RepositoryTile';
 export const RepositoryDataComponent = (props) => {
 	const {
 		repositoryData,
-		profileData
+		profileData,
+		searchValue,
+		repositoryLanguage,
+		repositoryType
 	} = props;
-
 	const renderRepositories = () => {
-		return repositoryData;
+		const {
+			key,
+			value
+		} = repositoryType;
+
+		const filterByTypeResults = repositoryData.filter(
+			(eachRepoData) => key ? eachRepoData[key] === value || eachRepoData[key]
+				: eachRepoData
+		);
+		const filterBylanguage = filterByTypeResults.filter((
+			eachRepoData => repositoryLanguage == "All" ?
+				eachRepoData
+				: eachRepoData.language === repositoryLanguage
+		));
+
+		return filterBylanguage.filter(
+			eachRepoData => {
+				const { name } = eachRepoData;
+				const repoNameInLowerCase = eachRepoData.name.toLowerCase();
+				const searchValueInLowerCase = searchValue.toLowerCase();
+				return repoNameInLowerCase.includes(searchValueInLowerCase)
+			}
+		);
 	}
 
 	if (!repositoryData || !repositoryData.length)
@@ -26,13 +50,13 @@ export const RepositoryDataComponent = (props) => {
 				profileData={profileData}
 				repositoryData={repositoryData}
 			/>
-			<SearchAndFilterTab {...props}/>
+			<SearchAndFilterTab {...props} />
 			{
 				renderRepositories().length ?
 					renderRepositories().map(
 						(eachRepoData, index) =>
 							<RepositoryTile
-							key={index + eachRepoData.id}
+								key={index + eachRepoData.id}
 								repoDetails={eachRepoData}
 							/>
 					)

@@ -16,3 +16,32 @@ export const bottomRepoDetailsConfig = [
 		formatter: 'getRelativeDate'
 	},
 ];
+export const filterTypes = [
+	{
+		label: "All",
+	},
+	{
+		label: "Public",
+		key: 'private',
+		value: false
+	},
+	{
+		label: "Private",
+		key: 'private',
+		value: true
+	},
+	{
+		label: "Forks",
+		key: 'fork',
+		value: true
+	},
+	{
+		label: "Archived",
+		key: 'archived',
+		value: true
+	},
+	{
+		label: "Mirrors",
+		key: 'archived'
+	}
+]
