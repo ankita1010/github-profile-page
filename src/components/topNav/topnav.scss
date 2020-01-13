@@ -1,0 +1,23 @@
+.github-nav {
+  height: 60px;
+  position: fixed;
+  top: 0;
+  background-color: #24292e;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  .nav-brand {
+    display: flex;
+    align-items: baseline;
+    color: white;
+    i {
+      font-size: 30px;
+    }
+    h2 {
+      margin: 0;
+      margin-left: 10px;
+	  font-weight: 400;
+    }
+  }
+}

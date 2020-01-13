@@ -1,0 +1,7 @@
+{
+  "name": "github-profile-page",
+  "short_name": "github-profile-page",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
