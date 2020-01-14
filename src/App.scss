@@ -58,6 +58,12 @@ body {
   .app-block {
     .repository-details-wrapper {
       .search-and-filter-block {
+		  .filter-types-wrapper {
+			  left: 5vw;
+		  }
+		  .language-filter {
+			  left: -10vw;
+		  }
         .repo-search {
           min-width: 90%;
           margin-bottom: 10px;

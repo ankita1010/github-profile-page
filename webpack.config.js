@@ -22,7 +22,7 @@ const config = function (env) {
 		plugins: [
 			new HtmlWebpackPlugin({
 				template: "./public/index.html",
-				//favicon: './src/hero-image.jpg' 
+				favicon: './public/assets/favicon.png' 
 			}),
 			new MiniCssExtractPlugin({
 				filename: "styles/[name].built.css"

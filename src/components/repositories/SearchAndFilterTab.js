@@ -76,7 +76,7 @@ export const SearchAndFilterTab = (props) => {
 
 				{
 					currentFilterVisible === "language" ?
-						<div className="filter-types-wrapper">
+						<div className="filter-types-wrapper language-filter">
 							<div className="filter-header">
 								Select Language
 							</div>
