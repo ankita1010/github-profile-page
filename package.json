@@ -4,7 +4,7 @@
   "description": "This project is created using react and webpack",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack -env=production",
+    "build": "webpack --env=production",
     "devbuild": "webpack -env=development"
   },
   "browserslist": {
