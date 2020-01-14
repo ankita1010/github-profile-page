@@ -13,7 +13,7 @@ export const ProfileComponent = (props) => {
 
 	if (!login)
 		return (
-			<div>Profile not found</div>
+			<div className="no-results-text">Profile not found</div>
 		);
 	return (
 		<div className="profile-wrapper">

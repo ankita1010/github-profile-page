@@ -42,7 +42,7 @@ export const RepositoryDataComponent = (props) => {
 
 	if (!repositoryData || !repositoryData.length)
 		return (
-			<div>No repositories found</div>
+			<div className="no-results-text">No repositories found</div>
 		);
 	return (
 		<div className="repository-details-wrapper">
@@ -60,7 +60,9 @@ export const RepositoryDataComponent = (props) => {
 								repoDetails={eachRepoData}
 							/>
 					)
-					: null
+					: <div className="no-results-text">
+							{`No matches found${searchValue ? ` for ${searchValue}` : ''}`}
+						</div>
 			}
 		</div>
 	)
